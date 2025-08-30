@@ -46,18 +46,20 @@ jobs:
           
       - name: Prepare deployment directory
         run: |
-          # Next.js 15 might not create 'out' in CI, so we'll handle both cases
+          # Force Next.js to export static files
+          npx next export || echo "Export command not available or failed"
+          
+          # Check if out directory was created
           if [ -d "out" ]; then
             echo "Found 'out' directory"
             cp public/CNAME out/ 2>/dev/null || true
           else
-            echo "'out' directory not found, creating it from public files"
+            echo "'out' directory not found, using public files as fallback"
             mkdir -p out
             cp -r public/* out/
-            # Copy any static build artifacts if they exist
-            if [ -d ".next/static" ]; then
-              mkdir -p out/_next
-              cp -r .next/static out/_next/
+            # Create a basic index.html if missing
+            if [ ! -f "out/index.html" ]; then
+              echo '<!DOCTYPE html><html><head><meta http-equiv="refresh" content="0; url=/r/registry.json"></head><body>Redirecting to registry...</body></html>' > out/index.html
             fi
           fi
           echo "Contents of deployment directory:"

@@ -38,18 +38,12 @@ jobs:
       - name: Build registry
         run: npm run registry:build
 
-      - name: Build with Next.js
-        run: npm run build || echo "Build completed with warnings"
-
-      - name: Prepare static files for deployment
+      - name: Build with Next.js (Static Export)
         run: |
-          echo "Creating output directory with registry files..."
-          mkdir -p out
-          cp -r public/* out/
-          echo "Contents of out directory:"
+          npm run build
+          npm run export
+          echo "Build and export completed, checking for output..."
           ls -la out/
-          echo "Contents of out/r directory:"
-          ls -la out/r/
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

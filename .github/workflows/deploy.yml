@@ -41,9 +41,10 @@ jobs:
       - name: Build with Next.js (Static Export)
         run: |
           npm run build
-          npm run export
-          echo "Build and export completed, checking for output..."
+          echo "Build completed with static export..."
           ls -la out/
+          echo "Copying CNAME to out directory..."
+          cp public/CNAME out/ 2>/dev/null || true
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

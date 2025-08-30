@@ -5,8 +5,6 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
-    "export": "next export",
-    "build:static": "next build && npx next export && cp public/CNAME out/ 2>/dev/null || true",
     "start": "next start",
     "lint": "next lint",
     "registry:build": "shadcn build"

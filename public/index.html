@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@arach Registry - Military-grade UI Components for shadcn/ui</title>
+    <meta name="description" content="Terminal theme and tactical UI patterns for shadcn/ui. Install with: npx shadcn@latest add @arach/terminal">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            background: #09090b;
+            color: #e4e4e7;
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .hero {
+            text-align: center;
+            padding: 4rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(rgba(0,180,216,0.03) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(0,180,216,0.03) 1px, transparent 1px);
+            background-size: 20px 20px;
+            pointer-events: none;
+        }
+        
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.25rem 0.75rem;
+            background: rgba(0, 180, 216, 0.1);
+            border: 1px solid rgba(0, 180, 216, 0.3);
+            border-radius: 9999px;
+            color: #00b4d8;
+            font-size: 0.75rem;
+            font-family: monospace;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1.5rem;
+        }
+        
+        .pulse {
+            width: 8px;
+            height: 8px;
+            background: #00b4d8;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(to right, #00b4d8, #0096c7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .subtitle {
+            font-size: 1.25rem;
+            color: #a1a1aa;
+            max-width: 600px;
+            margin: 0 auto 3rem;
+        }
+        
+        .install-section {
+            margin: 3rem 0;
+        }
+        
+        .install-label {
+            font-size: 0.875rem;
+            color: #71717a;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1rem;
+            font-family: monospace;
+        }
+        
+        .code-block {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: #121214;
+            border: 1px solid #27272a;
+            border-radius: 0.25rem;
+            color: #00b4d8;
+            font-family: monospace;
+            font-size: 0.875rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .alt-install {
+            font-size: 0.75rem;
+            color: #52525b;
+        }
+        
+        .theme-card {
+            background: #121214;
+            border: 2px solid #27272a;
+            border-left: 4px solid #00b4d8;
+            border-radius: 0.25rem;
+            padding: 2rem;
+            margin: 4rem 0;
+            text-align: left;
+        }
+        
+        .theme-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 2rem;
+        }
+        
+        .theme-title {
+            font-size: 1.5rem;
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+        }
+        
+        .theme-description {
+            color: #a1a1aa;
+            font-size: 0.875rem;
+        }
+        
+        .theme-badges {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        
+        .theme-badge {
+            padding: 0.25rem 0.5rem;
+            font-size: 0.625rem;
+            font-family: monospace;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            border-radius: 0.25rem;
+        }
+        
+        .badge-style {
+            background: rgba(0, 180, 216, 0.1);
+            color: #00b4d8;
+            border: 1px solid rgba(0, 180, 216, 0.3);
+        }
+        
+        .badge-ready {
+            background: rgba(0, 245, 160, 0.1);
+            color: #00f5a0;
+            border: 1px solid rgba(0, 245, 160, 0.3);
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .feature-section h4 {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #d1d1d6;
+            margin-bottom: 1rem;
+        }
+        
+        .feature-list {
+            list-style: none;
+        }
+        
+        .feature-list li {
+            display: flex;
+            align-items: start;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.875rem;
+            color: #a1a1aa;
+        }
+        
+        .feature-list .marker {
+            color: #00b4d8;
+            margin-top: 0.125rem;
+        }
+        
+        .config-section {
+            margin: 4rem 0;
+            padding: 2rem;
+            background: #121214;
+            border: 1px solid #27272a;
+            border-radius: 0.25rem;
+        }
+        
+        .config-title {
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+            padding-left: 1rem;
+            border-left: 2px solid #00b4d8;
+        }
+        
+        .config-subtitle {
+            color: #a1a1aa;
+            margin-bottom: 2rem;
+            padding-left: 1rem;
+        }
+        
+        .config-code {
+            background: #09090b;
+            border: 1px solid #27272a;
+            border-radius: 0.25rem;
+            padding: 1rem;
+            overflow-x: auto;
+        }
+        
+        .config-code pre {
+            font-family: monospace;
+            font-size: 0.875rem;
+            color: #d1d1d6;
+        }
+        
+        footer {
+            border-top: 1px solid #27272a;
+            padding: 2rem;
+            margin-top: 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .footer-text {
+            font-size: 0.75rem;
+            color: #52525b;
+            font-family: monospace;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+        
+        .footer-links a {
+            color: #71717a;
+            text-decoration: none;
+            font-size: 0.75rem;
+            transition: color 0.2s;
+        }
+        
+        .footer-links a:hover {
+            color: #00b4d8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hero">
+            <div class="badge">
+                <div class="pulse"></div>
+                Registry Active
+            </div>
+            
+            <h1>
+                <span class="gradient-text">@arach</span> Registry
+            </h1>
+            
+            <p class="subtitle">
+                Military-grade UI components and themes for shadcn/ui. 
+                Tactical precision meets sophisticated design.
+            </p>
+            
+            <div class="install-section">
+                <div class="install-label">Quick Install</div>
+                <div>
+                    <code class="code-block">npx shadcn@latest add @arach/terminal</code>
+                </div>
+                <div class="alt-install">
+                    or use direct URL: https://registry.arach.dev/r/terminal.json
+                </div>
+            </div>
+        </div>
+        
+        <div class="theme-card">
+            <div class="theme-header">
+                <div>
+                    <h3 class="theme-title">Terminal Theme</h3>
+                    <p class="theme-description">
+                        Complete design system with 550+ lines of tactical UI patterns
+                    </p>
+                    <div class="theme-badges">
+                        <span class="theme-badge badge-style">Style</span>
+                        <span class="theme-badge badge-ready">Production Ready</span>
+                    </div>
+                </div>
+                <div style="color: #71717a; font-family: monospace; font-size: 0.75rem;">v1.0.0</div>
+            </div>
+            
+            <div class="features">
+                <div class="feature-section">
+                    <h4>Includes</h4>
+                    <ul class="feature-list">
+                        <li>
+                            <span class="marker">▸</span>
+                            <span>Complete color system with grayscale + tactical accents</span>
+                        </li>
+                        <li>
+                            <span class="marker">▸</span>
+                            <span>Typography system with military precision</span>
+                        </li>
+                        <li>
+                            <span class="marker">▸</span>
+                            <span>40+ component styles (buttons, cards, inputs, tables)</span>
+                        </li>
+                        <li>
+                            <span class="marker">▸</span>
+                            <span>Special effects (glows, scanlines, grids)</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="feature-section">
+                    <h4>Utilities</h4>
+                    <ul class="feature-list">
+                        <li>
+                            <span class="marker">▸</span>
+                            <span>cx() class combination utility</span>
+                        </li>
+                        <li>
+                            <span class="marker">▸</span>
+                            <span>getThemeValue() for nested values</span>
+                        </li>
+                        <li>
+                            <span class="marker">▸</span>
+                            <span>Semantic aliases for common patterns</span>
+                        </li>
+                        <li>
+                            <span class="marker">▸</span>
+                            <span>CSS variables and animations</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="config-section">
+            <h2 class="config-title">Configuration</h2>
+            <p class="config-subtitle">Add the registry to your project</p>
+            
+            <div class="config-code">
+                <pre>{
+  "registries": {
+    "@arach": "https://registry.arach.dev/r/{name}.json"
+  }
+}</pre>
+            </div>
+        </div>
+        
+        <footer>
+            <div class="footer-text">@arach/registry v1.0.0</div>
+            <div class="footer-links">
+                <a href="https://github.com/arach/registry" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="/r/registry.json">Registry JSON</a>
+                <a href="/r/terminal.json">Terminal Theme</a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

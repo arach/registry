@@ -46,24 +46,18 @@ jobs:
           
       - name: Prepare deployment directory
         run: |
-          # Force Next.js to export static files
-          npx next export || echo "Export command not available or failed"
+          # Create out directory with all static files
+          mkdir -p out
           
-          # Check if out directory was created
-          if [ -d "out" ]; then
-            echo "Found 'out' directory"
-            cp public/CNAME out/ 2>/dev/null || true
-            # Ensure registry.json is at root
-            cp public/r/registry.json out/registry.json 2>/dev/null || true
-          else
-            echo "'out' directory not found, using public files as fallback"
-            mkdir -p out
-            cp -r public/* out/
-            # Create a basic index.html if missing
-            if [ ! -f "out/index.html" ]; then
-              echo '<!DOCTYPE html><html><head><meta http-equiv="refresh" content="0; url=/r/registry.json"></head><body>Redirecting to registry...</body></html>' > out/index.html
-            fi
-          fi
+          # Copy all public files including our static landing page
+          cp -r public/* out/
+          
+          # Ensure CNAME is present
+          cp public/CNAME out/ 2>/dev/null || true
+          
+          # Ensure registry.json is at root
+          cp public/r/registry.json out/registry.json 2>/dev/null || true
+          
           echo "Contents of deployment directory:"
           ls -la out/
 

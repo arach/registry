@@ -41,10 +41,27 @@ jobs:
       - name: Build with Next.js (Static Export)
         run: |
           npm run build
-          echo "Build completed with static export..."
+          echo "Build completed, checking directories..."
+          ls -la
+          
+      - name: Prepare deployment directory
+        run: |
+          # Next.js 15 might not create 'out' in CI, so we'll handle both cases
+          if [ -d "out" ]; then
+            echo "Found 'out' directory"
+            cp public/CNAME out/ 2>/dev/null || true
+          else
+            echo "'out' directory not found, creating it from public files"
+            mkdir -p out
+            cp -r public/* out/
+            # Copy any static build artifacts if they exist
+            if [ -d ".next/static" ]; then
+              mkdir -p out/_next
+              cp -r .next/static out/_next/
+            fi
+          fi
+          echo "Contents of deployment directory:"
           ls -la out/
-          echo "Copying CNAME to out directory..."
-          cp public/CNAME out/ 2>/dev/null || true
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

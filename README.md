@@ -1,23 +1,127 @@
-# registry-template
+# @arach Registry
 
-You can use the `shadcn` CLI to run your own component registry. Running your own
-component registry allows you to distribute your custom components, hooks, pages, and
-other files to any React project.
+Custom shadcn/ui registry hosted at https://registry.arach.dev
 
-> [!IMPORTANT]  
-> This template uses Tailwind v3. For Tailwind v4, see [registry-template](https://github.com/shadcn-ui/registry-template-v4). **We recommend using the v4 version for new registries**.
+## Available Components
 
-## Getting Started
+### Terminal Theme (`terminal`)
 
-This is a template for creating a custom registry using Next.js.
+A sophisticated terminal-inspired theme with military-grade precision design, tactical UI patterns, and comprehensive component styling.
 
-- The template uses a `registry.json` file to define components and their files.
-- The `shadcn build` command is used to build the registry.
-- The registry items are served as static files under `public/r/[name].json`.
-- The template also includes a route handler for serving registry items.
-- Every registry item are compatible with the `shadcn` CLI.
-- We have also added v0 integration using the `Open in v0` api.
+**Type:** `registry:style`
 
-## Documentation
+**Installs:**
+- `styles/terminal-theme.ts` - Complete theme object with colors, typography, components, and utilities
+- `app/globals.css` - CSS variables and utility classes
 
-Visit the [shadcn documentation](https://ui.shadcn.com/docs/registry) to view the full documentation.
+## Installation
+
+You can install the terminal theme in your shadcn/ui project using:
+
+### Direct URL Installation
+
+```bash
+npx shadcn@latest add https://registry.arach.dev/r/terminal.json
+```
+
+### Using the Registry Namespace
+
+First, configure your `components.json` to include the registry:
+
+```json
+{
+  "registries": {
+    "@arach": "https://registry.arach.dev"
+  }
+}
+```
+
+Then install using the namespace:
+
+```bash
+npx shadcn@latest add @arach/terminal
+```
+
+## What's Included
+
+The terminal theme provides:
+
+### Theme Object (`terminal-theme.ts`)
+- **Colors**: Enhanced grayscale foundation with tactical accent colors
+- **Typography**: Military-grade typography system with hierarchical text styles
+- **Components**: Pre-styled components including buttons, cards, inputs, tables, badges, and more
+- **Layout**: Tactical interface structures for containers, panels, sidebars
+- **Effects**: Special UI enhancements like glows, scanlines, grids
+- **Utilities**: Helper classes and functions including `cx()` and `getThemeValue()`
+
+### CSS Variables & Utilities (`globals.css`)
+- Terminal theme CSS variables for colors
+- Animation keyframes (scanline, fadeIn, slideIn)
+- Text, background, and border color utilities
+- Glow effects and special visual effects
+- Status indicators and gradient overlays
+
+## Usage Example
+
+```tsx
+import { terminalTheme, cx, themeAliases } from '@/styles/terminal-theme'
+
+// Use theme values directly
+<button className={terminalTheme.components.button.primary}>
+  Execute Command
+</button>
+
+// Use semantic aliases
+<input className={themeAliases.formInput} />
+
+// Combine classes with cx utility
+<div className={cx(
+  terminalTheme.layout.container,
+  terminalTheme.effects.grid
+)}>
+  Content
+</div>
+
+// Access nested theme values
+import { getThemeValue } from '@/styles/terminal-theme'
+const buttonStyle = getThemeValue('components.button.tactical')
+```
+
+## Development
+
+### Building the Registry
+
+```bash
+pnpm install
+pnpm registry:build
+```
+
+### Running Locally
+
+```bash
+pnpm dev
+```
+
+The registry will be available at:
+- `http://localhost:3000/registry.json` - Registry manifest
+- `http://localhost:3000/r/terminal.json` - Terminal theme component
+
+### Adding New Components
+
+1. Create your component files in `registry/[component-name]/`
+2. Update `registry.json` with the new component configuration
+3. Run `pnpm registry:build` to generate the output files
+
+## Deployment
+
+Deploy to any static hosting service. The registry requires:
+- `/registry.json` - Main registry manifest
+- `/r/[component].json` - Individual component files
+
+For custom domain setup, ensure your hosting serves:
+- `https://registry.arach.dev/registry.json`
+- `https://registry.arach.dev/r/terminal.json`
+
+## License
+
+MIT

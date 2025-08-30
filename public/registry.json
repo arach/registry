@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "@arach",
+  "homepage": "https://registry.arach.dev",
+  "items": [
+    {
+      "name": "terminal",
+      "type": "registry:style",
+      "title": "Terminal Theme",
+      "description": "Arach's custom terminal theme with CSS variables and utility functions",
+      "files": [
+        {
+          "path": "registry/terminal/styles/terminal-theme.ts",
+          "type": "registry:style",
+          "target": "styles/terminal-theme.ts"
+        },
+        {
+          "path": "registry/terminal/styles/globals.css",
+          "type": "registry:style",
+          "target": "app/globals.css"
+        }
+      ]
+    }
+  ]
+}

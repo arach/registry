@@ -53,6 +53,8 @@ jobs:
           if [ -d "out" ]; then
             echo "Found 'out' directory"
             cp public/CNAME out/ 2>/dev/null || true
+            # Ensure registry.json is at root
+            cp public/r/registry.json out/registry.json 2>/dev/null || true
           else
             echo "'out' directory not found, using public files as fallback"
             mkdir -p out

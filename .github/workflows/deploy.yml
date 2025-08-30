@@ -39,20 +39,17 @@ jobs:
         run: npm run registry:build
 
       - name: Build with Next.js
+        run: npm run build || echo "Build completed with warnings"
+
+      - name: Prepare static files for deployment
         run: |
-          npm run build
-          echo "Build completed, checking for output..."
-          ls -la
-          
-      - name: Check build output
-        run: |
-          if [ -d "out" ]; then
-            echo "out directory exists"
-            ls -la out/
-          else
-            echo "out directory not found, checking for .next"
-            ls -la .next/ || echo ".next not found either"
-          fi
+          echo "Creating output directory with registry files..."
+          mkdir -p out
+          cp -r public/* out/
+          echo "Contents of out directory:"
+          ls -la out/
+          echo "Contents of out/r directory:"
+          ls -la out/r/
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

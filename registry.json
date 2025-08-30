@@ -7,7 +7,7 @@
       "name": "terminal",
       "type": "registry:style",
       "title": "Terminal Theme",
-      "description": "Arach's custom terminal theme with CSS variables and utility functions",
+      "description": "A sophisticated terminal-inspired theme with military-grade precision design and tactical UI patterns",
       "files": [
         {
           "path": "registry/terminal/styles/terminal-theme.ts",
@@ -15,11 +15,25 @@
           "target": "styles/terminal-theme.ts"
         },
         {
-          "path": "registry/terminal/styles/globals.css",
+          "path": "registry/terminal/css/terminal.css",
           "type": "registry:style",
           "target": "app/globals.css"
         }
-      ]
+      ],
+      "cssVars": {
+        "light": {
+          "background": "0 0% 100%",
+          "foreground": "240 10% 3.9%",
+          "primary": "192 100% 42%",
+          "primary-foreground": "0 0% 100%"
+        },
+        "dark": {
+          "background": "240 10% 3.9%",
+          "foreground": "0 0% 98%",
+          "primary": "192 100% 42%", 
+          "primary-foreground": "240 5.9% 10%"
+        }
+      }
     }
   ]
 }

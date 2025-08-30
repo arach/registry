@@ -1,0 +1,60 @@
+{
+  "name": "terminal",
+  "type": "registry:style",
+  "title": "Terminal Theme",
+  "description": "A sophisticated terminal-inspired theme with military-grade precision design and tactical UI patterns",
+  "files": [
+    {
+      "path": "styles/terminal-theme.ts",
+      "content": "",
+      "type": "registry:style",
+      "target": "styles/terminal-theme.ts"
+    },
+    {
+      "path": "styles/globals.css", 
+      "content": "",
+      "type": "registry:style",
+      "target": "app/globals.css"
+    }
+  ],
+  "cssVars": {
+    "light": {
+      "--gray-0": "#ffffff",
+      "--gray-50": "#fafafa",
+      "--gray-100": "#f4f4f5",
+      "--gray-200": "#e4e4e7",
+      "--gray-300": "#d1d1d6",
+      "--gray-400": "#a1a1aa",
+      "--gray-500": "#71717a",
+      "--gray-600": "#52525b",
+      "--gray-700": "#3f3f46",
+      "--gray-800": "#27272a",
+      "--gray-900": "#121214",
+      "--gray-950": "#09090b",
+      "--accent-primary": "#00b4d8",
+      "--accent-success": "#00f5a0",
+      "--accent-warning": "#ffd60a",
+      "--accent-error": "#ff4444",
+      "--accent-info": "#0ea5e9"
+    },
+    "dark": {
+      "--gray-0": "#000000",
+      "--gray-50": "#09090b",
+      "--gray-100": "#121214",
+      "--gray-200": "#27272a",
+      "--gray-300": "#3f3f46",
+      "--gray-400": "#52525b",
+      "--gray-500": "#71717a",
+      "--gray-600": "#a1a1aa",
+      "--gray-700": "#d1d1d6",
+      "--gray-800": "#e4e4e7",
+      "--gray-900": "#f4f4f5",
+      "--gray-950": "#fafafa",
+      "--accent-primary": "#00b4d8",
+      "--accent-success": "#00f5a0",
+      "--accent-warning": "#ffd60a",
+      "--accent-error": "#ff4444",
+      "--accent-info": "#0ea5e9"
+    }
+  }
+}

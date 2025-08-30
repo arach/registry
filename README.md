@@ -31,7 +31,7 @@ First, configure your `components.json` to include the registry:
 ```json
 {
   "registries": {
-    "@arach": "https://registry.arach.dev"
+    "@arach": "https://registry.arach.dev/r/{name}.json"
   }
 }
 ```

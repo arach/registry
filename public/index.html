@@ -300,11 +300,9 @@
             
             <div class="install-section">
                 <div class="install-label">Quick Install</div>
-                <div>
+                <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;">
                     <code class="code-block">npx shadcn@latest add @arach/terminal</code>
-                </div>
-                <div class="alt-install">
-                    or use direct URL: https://registry.arach.dev/r/terminal.json
+                    <code class="code-block">npx shadcn@latest add @arach/devbar</code>
                 </div>
             </div>
         </div>
@@ -365,6 +363,69 @@
                         <li>
                             <span class="marker">▸</span>
                             <span>CSS variables and animations</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- DevBar Component Card -->
+        <div class="theme-card">
+            <div class="theme-header">
+                <div>
+                    <h3 class="theme-title">DevBar</h3>
+                    <p class="theme-description">
+                        Beautiful development toolbar for React applications with tabs, themes, and extensive customization
+                    </p>
+                    <div class="theme-badges">
+                        <span class="theme-badge badge-style">Component</span>
+                        <span class="theme-badge badge-ready">Two Variants</span>
+                    </div>
+                </div>
+                <div style="color: #71717a; font-family: monospace; font-size: 0.75rem;">v1.0.0</div>
+            </div>
+            
+            <div class="features">
+                <div class="feature-section">
+                    <h4>DevBar Standalone</h4>
+                    <ul class="feature-list">
+                        <li>
+                            <span class="marker">▸</span>
+                            <span>Full component source code</span>
+                        </li>
+                        <li>
+                            <span class="marker">▸</span>
+                            <span>Complete control and customization</span>
+                        </li>
+                        <li>
+                            <span class="marker">▸</span>
+                            <span>No external dependencies</span>
+                        </li>
+                        <li>
+                            <span class="marker">▸</span>
+                            <span>Install: @arach/devbar</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="feature-section">
+                    <h4>DevBar UI Layer</h4>
+                    <ul class="feature-list">
+                        <li>
+                            <span class="marker">▸</span>
+                            <span>Customizable wrapper component</span>
+                        </li>
+                        <li>
+                            <span class="marker">▸</span>
+                            <span>Core logic from @arach/devbar npm</span>
+                        </li>
+                        <li>
+                            <span class="marker">▸</span>
+                            <span>Automatic updates via npm</span>
+                        </li>
+                        <li>
+                            <span class="marker">▸</span>
+                            <span>Install: @arach/devbar-ui</span>
                         </li>
                     </ul>
                 </div>
@@ -432,6 +493,8 @@
                 <a href="https://github.com/arach/registry" target="_blank" rel="noopener noreferrer">GitHub</a>
                 <a href="/r/registry.json">Registry JSON</a>
                 <a href="/r/terminal.json">Terminal Theme</a>
+                <a href="/r/devbar.json">DevBar</a>
+                <a href="/r/devbar-ui.json">DevBar UI</a>
             </div>
         </footer>
     </div>

@@ -14,6 +14,24 @@ A sophisticated terminal-inspired theme with precision-focused design, technical
 - `styles/terminal-theme.ts` - Complete theme object with colors, typography, components, and utilities
 - `app/globals.css` - CSS variables and utility classes
 
+### DevBar (`devbar`)
+
+Full standalone development toolbar component for React applications. Copy the entire implementation into your project for complete control.
+
+**Type:** `registry:component`
+
+**Installs:**
+- `components/devbar/devtoolbar.tsx` - Complete DevToolbar implementation with all features
+
+### DevBar UI (`devbar-ui`)
+
+Customizable UI layer for @arach/devbar. Provides an open code wrapper you can modify while keeping the core logic managed via npm.
+
+**Type:** `registry:component`
+
+**Installs:**
+- `components/devbar-ui/index.tsx` - Customizable wrapper that imports from @arach/devbar npm package
+
 ## Installation
 
 You can install the terminal theme in your shadcn/ui project using:
@@ -21,7 +39,14 @@ You can install the terminal theme in your shadcn/ui project using:
 ### Direct URL Installation
 
 ```bash
+# Terminal theme
 npx shadcn@latest add https://registry.arach.dev/r/terminal.json
+
+# DevBar (standalone)
+npx shadcn@latest add https://registry.arach.dev/r/devbar.json
+
+# DevBar UI (with npm dependency)
+npx shadcn@latest add https://registry.arach.dev/r/devbar-ui.json
 ```
 
 ### Using the Registry Namespace
@@ -39,10 +64,19 @@ First, configure your `components.json` to include the registry:
 Then install using the namespace:
 
 ```bash
+# Terminal theme
 npx shadcn@latest add @arach/terminal
+
+# DevBar (full standalone component)
+npx shadcn@latest add @arach/devbar
+
+# DevBar UI (customizable wrapper with npm core)
+npx shadcn@latest add @arach/devbar-ui
 ```
 
-## What's Included
+## Component Details
+
+### Terminal Theme
 
 The terminal theme provides:
 
@@ -87,6 +121,51 @@ import { getThemeValue } from '@/styles/terminal-theme'
 const buttonStyle = getThemeValue('components.button.tactical')
 ```
 
+### DevBar Components
+
+#### DevBar (Standalone)
+The full component implementation copied directly into your project:
+
+```tsx
+import { DevToolbar } from '@/components/devbar/devtoolbar'
+
+// Full control over the implementation
+<DevToolbar 
+  tabs={[
+    {
+      id: 'state',
+      label: 'State',
+      content: <YourContent />
+    }
+  ]}
+/>
+```
+
+#### DevBar UI (NPM + Customizable Layer)  
+A thin wrapper around the npm package that you can customize:
+
+```tsx
+import { DevToolbar } from '@/components/devbar-ui'
+// Wrapper imports from: @arach/devbar
+
+// Customize the wrapper in components/devbar-ui/index.tsx
+// Core logic stays in npm, UI layer is yours to modify
+<DevToolbar 
+  tabs={yourTabs}
+  theme="dark" // Your defaults
+/>
+```
+
+**Choose DevBar UI when:**
+- You want automatic updates to core functionality
+- You only need to customize styling/defaults
+- You prefer managed dependencies
+
+**Choose DevBar Standalone when:**
+- You need full control over the implementation
+- You want to modify core behavior
+- You prefer vendored dependencies
+
 ## Development
 
 ### Building the Registry
@@ -104,7 +183,9 @@ pnpm dev
 
 The registry will be available at:
 - `http://localhost:3000/registry.json` - Registry manifest
-- `http://localhost:3000/r/terminal.json` - Terminal theme component
+- `http://localhost:3000/r/terminal.json` - Terminal theme
+- `http://localhost:3000/r/devbar.json` - DevBar standalone
+- `http://localhost:3000/r/devbar-ui.json` - DevBar UI layer
 
 ### Adding New Components
 
@@ -121,6 +202,8 @@ Deploy to any static hosting service. The registry requires:
 For custom domain setup, ensure your hosting serves:
 - `https://registry.arach.dev/registry.json`
 - `https://registry.arach.dev/r/terminal.json`
+- `https://registry.arach.dev/r/devbar.json`
+- `https://registry.arach.dev/r/devbar-ui.json`
 
 ## License
 

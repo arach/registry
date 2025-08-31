@@ -6,7 +6,7 @@ Custom shadcn/ui registry hosted at https://registry.arach.dev
 
 ### Terminal Theme (`terminal`)
 
-A sophisticated terminal-inspired theme with military-grade precision design, tactical UI patterns, and comprehensive component styling.
+A sophisticated terminal-inspired theme with precision-focused design, technical UI patterns, and comprehensive component styling.
 
 **Type:** `registry:style`
 
@@ -47,10 +47,10 @@ npx shadcn@latest add @arach/terminal
 The terminal theme provides:
 
 ### Theme Object (`terminal-theme.ts`)
-- **Colors**: Enhanced grayscale foundation with tactical accent colors
-- **Typography**: Military-grade typography system with hierarchical text styles
+- **Colors**: Enhanced grayscale foundation with strategic accent colors
+- **Typography**: Precision typography system with hierarchical text styles
 - **Components**: Pre-styled components including buttons, cards, inputs, tables, badges, and more
-- **Layout**: Tactical interface structures for containers, panels, sidebars
+- **Layout**: Technical interface structures for containers, panels, sidebars
 - **Effects**: Special UI enhancements like glows, scanlines, grids
 - **Utilities**: Helper classes and functions including `cx()` and `getThemeValue()`
 

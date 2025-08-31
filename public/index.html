@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@arach Registry - Military-grade UI Components for shadcn/ui</title>
-    <meta name="description" content="Terminal theme and tactical UI patterns for shadcn/ui. Install with: npx shadcn@latest add @arach/terminal">
+    <title>@arach Registry - Precision UI Components for shadcn/ui</title>
+    <meta name="description" content="Terminal theme with precision-focused design patterns for shadcn/ui. Install with: npx shadcn@latest add @arach/terminal">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
@@ -14,29 +14,32 @@
             color: #e4e4e7;
             min-height: 100vh;
             line-height: 1.6;
+            position: relative;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background: linear-gradient(rgba(0,180,216,0.03) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(0,180,216,0.03) 1px, transparent 1px);
+            background-size: 20px 20px;
+            pointer-events: none;
+            z-index: 0;
         }
         
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 2rem;
+            position: relative;
+            z-index: 1;
         }
         
         .hero {
             text-align: center;
             padding: 4rem 0;
             position: relative;
-            overflow: hidden;
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(rgba(0,180,216,0.03) 1px, transparent 1px),
-                        linear-gradient(90deg, rgba(0,180,216,0.03) 1px, transparent 1px);
-            background-size: 20px 20px;
-            pointer-events: none;
         }
         
         .badge {
@@ -291,8 +294,8 @@
             </h1>
             
             <p class="subtitle">
-                Military-grade UI components and themes for shadcn/ui. 
-                Tactical precision meets sophisticated design.
+                Precision-engineered UI components and themes for shadcn/ui. 
+                Technical excellence meets sophisticated design.
             </p>
             
             <div class="install-section">
@@ -311,7 +314,7 @@
                 <div>
                     <h3 class="theme-title">Terminal Theme</h3>
                     <p class="theme-description">
-                        Complete design system with 550+ lines of tactical UI patterns
+                        Complete design system with 550+ lines of precision-focused UI patterns
                     </p>
                     <div class="theme-badges">
                         <span class="theme-badge badge-style">Style</span>
@@ -327,11 +330,11 @@
                     <ul class="feature-list">
                         <li>
                             <span class="marker">▸</span>
-                            <span>Complete color system with grayscale + tactical accents</span>
+                            <span>Complete color system with grayscale + strategic accents</span>
                         </li>
                         <li>
                             <span class="marker">▸</span>
-                            <span>Typography system with military precision</span>
+                            <span>Typography system with technical precision</span>
                         </li>
                         <li>
                             <span class="marker">▸</span>
@@ -364,6 +367,48 @@
                             <span>CSS variables and animations</span>
                         </li>
                     </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Component Preview Section -->
+        <div style="margin: 4rem 0;">
+            <h2 style="font-size: 1.5rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 2rem; padding-left: 1rem; border-left: 2px solid #00b4d8;">
+                Component Preview
+            </h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+                <!-- Button Examples -->
+                <div style="background: #121214; border: 1px solid #27272a; border-radius: 0.25rem; padding: 1.5rem;">
+                    <h4 style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: #a1a1aa; margin-bottom: 1rem;">Buttons</h4>
+                    <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                        <button style="padding: 0.5rem 1rem; background: linear-gradient(to right, #00b4d8, #0096c7); color: white; border: none; border-radius: 0.25rem; font-size: 0.75rem; font-weight: bold; text-transform: uppercase; letter-spacing: 0.1em; cursor: pointer;">Primary</button>
+                        <button style="padding: 0.5rem 1rem; background: #27272a; color: #a1a1aa; border: 2px solid #27272a; border-radius: 0.25rem; font-size: 0.75rem; font-weight: bold; text-transform: uppercase; letter-spacing: 0.1em; cursor: pointer;">Secondary</button>
+                        <button style="padding: 0.5rem 1rem; background: transparent; color: #71717a; border: none; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; cursor: pointer;">Ghost</button>
+                    </div>
+                </div>
+                
+                <!-- Input Example -->
+                <div style="background: #121214; border: 1px solid #27272a; border-radius: 0.25rem; padding: 1.5rem;">
+                    <h4 style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: #a1a1aa; margin-bottom: 1rem;">Input</h4>
+                    <input type="text" placeholder="Enter command..." style="width: 100%; padding: 0.5rem; background: #09090b; border: 1px solid #27272a; border-radius: 0.25rem; color: #e4e4e7; font-family: monospace; font-size: 0.875rem; outline: none;">
+                </div>
+                
+                <!-- Badge Examples -->
+                <div style="background: #121214; border: 1px solid #27272a; border-radius: 0.25rem; padding: 1.5rem;">
+                    <h4 style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: #a1a1aa; margin-bottom: 1rem;">Badges</h4>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                        <span style="padding: 0.25rem 0.75rem; background: rgba(0, 180, 216, 0.1); color: #00b4d8; border: 1px solid rgba(0, 180, 216, 0.3); border-radius: 0.25rem; font-size: 0.625rem; font-family: monospace; text-transform: uppercase; letter-spacing: 0.1em;">Primary</span>
+                        <span style="padding: 0.25rem 0.75rem; background: rgba(0, 245, 160, 0.1); color: #00f5a0; border: 1px solid rgba(0, 245, 160, 0.3); border-radius: 0.25rem; font-size: 0.625rem; font-family: monospace; text-transform: uppercase; letter-spacing: 0.1em;">Success</span>
+                        <span style="padding: 0.25rem 0.75rem; background: rgba(255, 214, 10, 0.1); color: #ffd60a; border: 1px solid rgba(255, 214, 10, 0.3); border-radius: 0.25rem; font-size: 0.625rem; font-family: monospace; text-transform: uppercase; letter-spacing: 0.1em;">Warning</span>
+                        <span style="padding: 0.25rem 0.75rem; background: rgba(255, 68, 68, 0.1); color: #ff4444; border: 1px solid rgba(255, 68, 68, 0.3); border-radius: 0.25rem; font-size: 0.625rem; font-family: monospace; text-transform: uppercase; letter-spacing: 0.1em;">Error</span>
+                    </div>
+                </div>
+                
+                <!-- Card Example -->
+                <div style="background: #121214; border: 1px solid #27272a; border-left: 4px solid #00b4d8; border-radius: 0.25rem; padding: 1.5rem;">
+                    <h4 style="font-size: 0.875rem; color: #ffffff; margin-bottom: 0.5rem;">Terminal Card</h4>
+                    <p style="font-size: 0.75rem; color: #71717a; line-height: 1.5;">Example card component with the terminal theme's signature left border accent and sophisticated color palette.</p>
                 </div>
             </div>
         </div>

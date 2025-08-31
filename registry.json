@@ -7,7 +7,7 @@
       "name": "terminal",
       "type": "registry:style",
       "title": "Terminal Theme",
-      "description": "A sophisticated terminal-inspired theme with military-grade precision design and tactical UI patterns",
+      "description": "A sophisticated terminal-inspired theme with precision-focused design patterns and comprehensive component styling",
       "files": [
         {
           "path": "registry/terminal/styles/terminal-theme.ts",
@@ -34,6 +34,34 @@
           "primary-foreground": "240 5.9% 10%"
         }
       }
+    },
+    {
+      "name": "devbar",
+      "type": "registry:component",
+      "title": "DevBar",
+      "description": "Full standalone DevBar component - copy the entire implementation into your project for complete control",
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "registry/devbar/devtoolbar.tsx",
+          "type": "registry:component",
+          "target": "components/devbar/devtoolbar.tsx"
+        }
+      ]
+    },
+    {
+      "name": "devbar-ui",
+      "type": "registry:component",
+      "title": "DevBar UI",
+      "description": "Customizable UI layer for @arach/devbar - the open code layer you modify while core stays managed via npm",
+      "dependencies": ["@arach/devbar"],
+      "files": [
+        {
+          "path": "registry/devbar-ui/devbar.tsx",
+          "type": "registry:component",
+          "target": "components/devbar-ui/index.tsx"
+        }
+      ]
     }
   ]
 }

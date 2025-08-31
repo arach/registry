@@ -1,0 +1,20 @@
+{
+  "name": "devbar",
+  "type": "registry:component",
+  "title": "DevBar - Development Toolbar",
+  "description": "A beautiful, minimal development toolbar for React applications with tabs, themes, and extensive customization options",
+  "dependencies": ["lucide-react"],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/devbar/devtoolbar.tsx",
+      "type": "registry:component",
+      "target": "components/devbar/devtoolbar.tsx"
+    }
+  ],
+  "meta": {
+    "docs": "https://github.com/arach/devbar",
+    "npm": "@arach/devbar"
+  }
+}

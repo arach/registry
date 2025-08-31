@@ -1,0 +1,18 @@
+{
+  "name": "devbar-ui",
+  "type": "registry:component",
+  "title": "DevBar UI",
+  "description": "Customizable UI layer for @arach/devbar - the open code layer you modify while core stays managed via npm",
+  "dependencies": ["@arach/devbar", "lucide-react"],
+  "files": [
+    {
+      "path": "registry/devbar-ui/devbar.tsx",
+      "type": "registry:component", 
+      "target": "components/devbar-ui/index.tsx"
+    }
+  ],
+  "meta": {
+    "docs": "https://github.com/arach/devbar",
+    "npm": "@arach/devbar"
+  }
+}
